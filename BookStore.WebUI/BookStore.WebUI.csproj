@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProductManager\Index.cshtml" />
+    <Content Include="Views\ProductManager\Create.cshtml" />
+    <Content Include="Views\ProductManager\Edit.cshtml" />
+    <Content Include="Views\ProductManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,6 +256,24 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookStore.Core\BookStore.Core.csproj">
+      <Project>{b90e4b82-6478-40a2-9d78-d380f379f46a}</Project>
+      <Name>BookStore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.DataAccess.InMemory\BookStore.DataAccess.InMemory.csproj">
+      <Project>{894748e6-faf2-479c-bd48-5c8a70ab0c63}</Project>
+      <Name>BookStore.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.DataAccess.SQL\BookStore.DataAccess.SQL.csproj">
+      <Project>{79ae6acf-ed67-4a2f-90de-4c51759ab3e5}</Project>
+      <Name>BookStore.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.Services\BookStore.Services.csproj">
+      <Project>{91b970d4-3ebe-44d4-a6c7-12a94fa8848d}</Project>
+      <Name>BookStore.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
