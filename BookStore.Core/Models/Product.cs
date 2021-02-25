@@ -8,13 +8,8 @@ using System.Threading.Tasks;
 
 namespace BookStore.Core.Models
 {
-    public class Product
-    {
-        public Product()
-        {
-            this.ID = Guid.NewGuid().ToString();
-        }
-        public string ID { get; set; }
+    public class Product : BaseEntity
+    {                
         [Required]
         [StringLength(100)]
         [DisplayName("Product Name")]
