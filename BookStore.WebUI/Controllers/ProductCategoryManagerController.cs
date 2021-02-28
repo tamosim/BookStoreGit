@@ -1,4 +1,5 @@
-﻿using BookStore.Core.Models;
+﻿using BookStore.Core.Contracts;
+using BookStore.Core.Models;
 using BookStore.DataAccess.InMemory;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,11 @@ namespace BookStore.WebUI.Controllers
     public class ProductCategoryManagerController : Controller
     {
         // GET: ProductCategoryManager
-        InMemoryRepository<ProductCategory>  context;
+        IRepository<ProductCategory> context;
 
-        public ProductCategoryManagerController()
+        public ProductCategoryManagerController(IRepository<ProductCategory> context)
         {
-            context = new InMemoryRepository<ProductCategory>();
+            this.context = context;
         }
         
         public ActionResult Index()
