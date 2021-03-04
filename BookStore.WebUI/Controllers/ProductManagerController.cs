@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,7 +36,7 @@ namespace BookStore.WebUI.Controllers
            return View(viewModel);
         }
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -43,6 +44,11 @@ namespace BookStore.WebUI.Controllers
             }
             else 
             {
+                if (file != null)
+                {
+                    product.Image = product.ID + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + product.Image);
+                }
                 context.Insert(product);
                 context.Save();
                 return RedirectToAction("Index");
@@ -65,7 +71,7 @@ namespace BookStore.WebUI.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Edit(Product product, string ID)
+        public ActionResult Edit(Product product, string ID,HttpPostedFileBase file)
         {
             Product ProductToEdit = context.Find(ID);
             if (product == null)
@@ -80,9 +86,13 @@ namespace BookStore.WebUI.Controllers
                 }
                 else
                 {
+                    if (file != null)
+                    {
+                        ProductToEdit.Image = product.ID + Path.GetExtension(file.FileName);
+                        file.SaveAs(Server.MapPath("//Content//ProductImages//") + ProductToEdit.Image);
+                    }
                     ProductToEdit.Category = product.Category;
                     ProductToEdit.Description = product.Description;
-                    ProductToEdit.Image = product.Image;
                     ProductToEdit.Name = product.Name;
                     ProductToEdit.Price = product.Price;
                     ProductToEdit.Author = product.Author;
