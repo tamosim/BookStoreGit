@@ -17,5 +17,7 @@ namespace BookStore.DataAccess.SQL
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
     }
 }
