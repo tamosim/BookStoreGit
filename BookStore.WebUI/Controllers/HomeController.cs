@@ -1,5 +1,6 @@
 ﻿using BookStore.Core.Contracts;
 using BookStore.Core.Models;
+using BookStore.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,22 @@ namespace BookStore.WebUI.Controllers
             context = productContext;
             productCategories = productCategoryContext;
         }
-        public ActionResult Index()
+        public ActionResult Index(string Category=null)
         {
-            List<Product> productlist = context.Collection().ToList();
-            return View(productlist);
+            List<Product> productlist;
+            List<ProductCategory> Categorylist = productCategories.Collection().ToList();
+            if (Category == null)
+            {
+                productlist=context.Collection().ToList();
+            }
+            else
+            {
+                productlist = context.Collection().Where(p => p.Category == Category).ToList();
+            }
+            ProductListViewModel model = new ProductListViewModel();
+            model.Product = productlist;
+            model.ProductCategories = Categorylist;
+            return View(model);
         }
         public ActionResult Details(string id)
         {
