@@ -10,7 +10,7 @@ namespace BookStore.Core.Models
     {
         public string CartID { get; set; }
         public string ProductID { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
     }
 }

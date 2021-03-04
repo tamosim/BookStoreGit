@@ -57,6 +57,10 @@
     <Compile Include="Migrations\202103041927267_AddBasket.Designer.cs">
       <DependentUpon>202103041927267_AddBasket.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103042022090_CartItemQuantityToInt.cs" />
+    <Compile Include="Migrations\202103042022090_CartItemQuantityToInt.Designer.cs">
+      <DependentUpon>202103042022090_CartItemQuantityToInt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLRepository.cs" />
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103041927267_AddBasket.resx">
       <DependentUpon>202103041927267_AddBasket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103042022090_CartItemQuantityToInt.resx">
+      <DependentUpon>202103042022090_CartItemQuantityToInt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
