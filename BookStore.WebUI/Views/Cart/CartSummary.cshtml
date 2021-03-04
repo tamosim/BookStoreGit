@@ -1,0 +1,11 @@
+﻿@model BookStore.Core.ViewModels.CartSummaryViewModel
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="@Url.Action("Index","Cart")"><img src="~/Content/CartIcon.jpg" / style="height:30px;"></a></li>
+
+    <li><a href="@Url.Action("Index","Cart")">@Model.CartCount items</a></li>
+    <li>
+        <a href="@Url.Action("Index", "Cart")">@string.Format("{0:c}", Model.CartTotal)</a>
+    </li>
+    
+</ul>
